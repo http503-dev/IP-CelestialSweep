@@ -55,15 +55,40 @@ body, html {
 }
 
 .sidebar-list a i {
-  margin-right: 10px; /* Adjust the spacing between icon and text */
+  margin-right: 15px;
 }
 
 .sidebar-text {
   display: none;
+  margin-left: 10px;
 }
 
 .sidebar:hover .sidebar-text {
   display: inline-block;
+}
+
+.top-buttons {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  display: flex;
+}
+
+.circle-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  background-color: #333;
+  border-radius: 50%;
+  margin-left: 10px;
+  text-decoration: none;
+  color: #fff;
+}
+
+.circle-button svg {
+  max-width: 65%; /* Adjust the size of the icon within the button */
 }
 
 .content {
