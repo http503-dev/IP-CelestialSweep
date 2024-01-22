@@ -16,7 +16,7 @@ body, html {
   width: 60px;
   background-color: #333;
   color: #fff;
-  transition: width 0.3s;
+  transition: width 0.4s;
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -24,7 +24,7 @@ body, html {
 }
 
 .sidebar:hover {
-  width: 200px;
+  width: 270px;
 }
 
 .sidebar-header {
@@ -51,7 +51,7 @@ body, html {
 
 .sidebar-list a {
   text-decoration: none;
-  color: #fff;
+  color: #ffd1e3;
   display: flex;
   align-items: center;
 }
@@ -98,6 +98,10 @@ body, html {
   padding: 20px;
 }
 
+h1{
+  text-align: center;
+}
+
 /* ----------------------------------- MAIN LAYOUT END ----------------------------------*/
 
 /* ----------------------------------- ABOUT US START ----------------------------------*/
@@ -109,17 +113,39 @@ body, html {
 }
 
 .card {
-  background-color: #fff;
-  border: 1px solid #ddd;
+  background-color: #333;
+  border: 1px solid #ffd1e3;
   border-radius: 8px;
   padding: 20px;
-  width: 300px; /* Set a fixed width for the profile cards */
+  width: 300px;
+}
+
+.card img {
+  max-width: 90%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .card h2 {
-  color: #333;
+  color: #a367b1;
 }
 
 .card p {
-  color: #666;
+  color: #ffd1e3;
+}
+
+.contact-info {
+  background-color: #333;
+  border: 1px solid #ffd1e3;
+  border-radius: 8px;
+  padding: 20px;
+}
+
+.contact-info h2 {
+  color: #a367b1;
+}
+
+.contact-info p {
+  color: #ffd1e3;
 }
