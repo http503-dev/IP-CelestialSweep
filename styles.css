@@ -52,6 +52,13 @@ p {
   text-align: center;
   width: 100%;
   box-sizing: border-box;
+  overflow: hidden;
+}
+
+.company-logo {
+  max-width: 100%;
+  height: auto;
+  max-height: 100%;
 }
 
 .sidebar-list {
@@ -135,13 +142,12 @@ h1{
   padding: 20px;
 }
 
-/* Set a specific width for the slider container */
 .slider-container {
-  width: 400px; /* Adjust the width as needed */
-  margin: 0 auto; /* Center the container */
+  width: 400px;
+  margin: 0 auto; /* center container */
 }
 
-/* Style your slider buttons */
+/* button slider */
 .btn {
   background-color: #333;
   color: #fff;
@@ -152,7 +158,14 @@ h1{
 
 /* ----------------------------------- HOME PAGE END ----------------------------------*/
 
-
+/* ----------------------------------- POINTS SHOP START ----------------------------------*/
+.shop-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin: 20px;
+}
+/* ----------------------------------- POINTS SHOP END ----------------------------------*/
 
 /* ----------------------------------- ABOUT US START ----------------------------------*/
 .profile-cards {
@@ -162,6 +175,7 @@ h1{
   margin: 20px;
 }
 
+/* cards used in: about us, points shop */
 .card {
   background-color: #333;
   border: 1px solid #ffd1e3;
@@ -176,6 +190,7 @@ h1{
   margin-left: auto;
   margin-right: auto;
 }
+/* cards used in: about us, points shop */
 
 .contact-info {
   background-color: #333;
