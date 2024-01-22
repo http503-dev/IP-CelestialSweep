@@ -1,3 +1,5 @@
+/*main layout*/
+
 body, html {
   margin: 0;
   padding: 0;
@@ -88,10 +90,36 @@ body, html {
 }
 
 .circle-button svg {
-  max-width: 65%; /* Adjust the size of the icon within the button */
+  max-width: 65%;
 }
 
 .content {
   flex: 1;
   padding: 20px;
+}
+
+/* ----------------------------------- MAIN LAYOUT END ----------------------------------*/
+
+/* ----------------------------------- ABOUT US START ----------------------------------*/
+
+.profile-cards {
+  display: flex;
+  justify-content: space-around;
+  margin: 20px;
+}
+
+.card {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  width: 300px; /* Set a fixed width for the profile cards */
+}
+
+.card h2 {
+  color: #333;
+}
+
+.card p {
+  color: #666;
 }
