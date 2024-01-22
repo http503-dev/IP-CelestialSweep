@@ -7,6 +7,18 @@ body, html {
   height: 100%;
 }
 
+h1, h2, h3 {
+  font-family: "Audiowide", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+p {
+  font-family: "Chakra Petch", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
 .wrapper {
   display: flex;
   height: 100vh;
@@ -15,12 +27,15 @@ body, html {
 .sidebar {
   width: 60px;
   background-color: #333;
-  color: #fff;
+  color: #ffd1e3;
   transition: width 0.4s;
   overflow: hidden;
   display: flex;
   flex-direction: column;
   align-items: center;
+  font-family: "Chakra Petch", sans-serif;
+  font-weight: 400;
+  font-style: normal;
 }
 
 .sidebar:hover {
@@ -54,6 +69,9 @@ body, html {
   color: #ffd1e3;
   display: flex;
   align-items: center;
+  font-family: "Chakra Petch", sans-serif;
+  font-weight: 400;
+  font-style: normal;
 }
 
 .sidebar-list a i {
