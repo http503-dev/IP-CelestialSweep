@@ -1,5 +1,4 @@
-/*main layout*/
-
+/* ----------------------------------- MAIN LAYOUT START ----------------------------------*/
 body, html {
   margin: 0;
   padding: 0;
@@ -13,10 +12,15 @@ h1, h2, h3 {
   font-style: normal;
 }
 
+h2 {
+  color: #a367b1;
+}
+
 p {
   font-family: "Chakra Petch", sans-serif;
   font-weight: 400;
   font-style: normal;
+  color: #ffd1e3;
 }
 
 .wrapper {
@@ -33,6 +37,8 @@ p {
   display: flex;
   flex-direction: column;
   align-items: center;
+  position: fixed;
+  height: 100vh;
   font-family: "Chakra Petch", sans-serif;
   font-weight: 400;
   font-style: normal;
@@ -88,7 +94,7 @@ p {
 }
 
 .top-buttons {
-  position: fixed;
+  position: absolute;
   top: 10px;
   right: 10px;
   display: flex;
@@ -114,18 +120,45 @@ p {
 .content {
   flex: 1;
   padding: 20px;
+  margin-left: 60px;
 }
 
 h1{
   text-align: center;
 }
-
 /* ----------------------------------- MAIN LAYOUT END ----------------------------------*/
 
-/* ----------------------------------- ABOUT US START ----------------------------------*/
+/* ----------------------------------- HOME PAGE START ----------------------------------*/
+.home-info {
+  background-color: #333;
+  border: 1px solid #ffd1e3;
+  border-radius: 8px;
+  padding: 20px;
+}
 
+/* Set a specific width for the slider container */
+.slider-container {
+  width: 400px; /* Adjust the width as needed */
+  margin: 0 auto; /* Center the container */
+}
+
+/* Style your slider buttons */
+.btn {
+  background-color: #333;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+}
+
+/* ----------------------------------- HOME PAGE END ----------------------------------*/
+
+
+
+/* ----------------------------------- ABOUT US START ----------------------------------*/
 .profile-cards {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-around;
   margin: 20px;
 }
@@ -145,25 +178,10 @@ h1{
   margin-right: auto;
 }
 
-.card h2 {
-  color: #a367b1;
-}
-
-.card p {
-  color: #ffd1e3;
-}
-
 .contact-info {
   background-color: #333;
   border: 1px solid #ffd1e3;
   border-radius: 8px;
   padding: 20px;
 }
-
-.contact-info h2 {
-  color: #a367b1;
-}
-
-.contact-info p {
-  color: #ffd1e3;
-}
+/* ----------------------------------- ABOUT US END ----------------------------------*/
