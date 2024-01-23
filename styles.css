@@ -3,6 +3,11 @@ body, html {
   margin: 0;
   padding: 0;
   height: 100%;
+  background-image: url('images/background.png');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover
+  
 }
 
 h1, h2, h3 {
@@ -11,15 +16,23 @@ h1, h2, h3 {
   font-style: normal;
 }
 
-h2 {
+h1 {
+  color: #ffd1e3;
+}
+
+h2, h3{
   color: #a367b1;
+}
+
+h2 {
+  color: black;
 }
 
 p {
   font-family: "Chakra Petch", sans-serif;
   font-weight: 400;
   font-style: normal;
-  color: #ffd1e3;
+  color: #333;
 }
 
 .wrapper {
@@ -136,8 +149,8 @@ h1{
 
 /* ----------------------------------- HOME PAGE START ----------------------------------*/
 .home-info {
-  background-color: #333;
-  border: 1px solid #ffd1e3;
+  background-color: #a367b1;
+  border: 1px solid #333;
   border-radius: 8px;
   padding: 20px;
 }
@@ -177,8 +190,8 @@ h1{
 
 /* cards used in: about us, points shop */
 .card {
-  background-color: #333;
-  border: 1px solid #ffd1e3;
+  background-color: #a367b1;
+  border: 1px solid #333;
   border-radius: 8px;
   padding: 20px;
   width: 300px;
@@ -193,8 +206,8 @@ h1{
 /* cards used in: about us, points shop */
 
 .contact-info {
-  background-color: #333;
-  border: 1px solid #ffd1e3;
+  background-color: #a367b1;
+  border: 1px solid #333;
   border-radius: 8px;
   padding: 20px;
 }
