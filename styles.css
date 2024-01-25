@@ -1,51 +1,3 @@
-/* login page */
-body {
-  margin: 0;
-  padding: 0;
-  height: 100vh;
-  font-family: "Chakra Petch", sans-serif;
-  font-weight: 400;
-  font-style: normal;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.login-container {
-  text-align: center;
-  padding: 20px;
-  border: 1px solid #333;
-  border-radius: 5px;
-  background-color: #a367b1;
-}
-
-label {
-  display: block;
-  margin: 10px 0;
-}
-
-input {
-  width: 100%;
-  padding: 8px;
-  margin-bottom: 10px;
-  box-sizing: border-box;
-  font-family: "Chakra Petch", sans-serif;
-  font-weight: 400;
-  font-style: normal;
-}
-
-button {
-  background-color: #4caf50;
-  color: white;
-  padding: 10px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-family: "Chakra Petch", sans-serif;
-  font-weight: 400;
-  font-style: normal;
-}
-
 /* ----------------------------------- MAIN LAYOUT START ----------------------------------*/
 body, html {
   margin: 0;
@@ -260,3 +212,48 @@ h1{
   padding: 20px;
 }
 /* ----------------------------------- ABOUT US END ----------------------------------*/
+
+#game-container {
+  background-color: #a367b1;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#question-container {
+  margin-bottom: 20px;
+}
+
+#options-container {
+  display: flex;
+  flex-direction: column;
+}
+
+#options-container button {
+  margin-bottom: 10px;
+  padding: 10px;
+  border: none;
+  background-color: #333;
+  color: #ffd1e3;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+#options-container button:hover {
+  background-color: #392467;
+}
+
+#next-button {
+  padding: 10px;
+  border: none;
+  background-color: #333;
+  color: #ffd1e3;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+#next-button:hover {
+  background-color: #392467;
+}
