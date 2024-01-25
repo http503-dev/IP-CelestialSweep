@@ -21,19 +21,19 @@ function setImg(){
 
 const questions = [
   {
-      question: "Which planet is known as the 'Red Planet'?",
-      options: ["Mars", "Jupiter", "Venus", "Saturn"],
-      correctAnswer: "Mars"
+    question: "Which planet is known as the 'Red Planet'?",
+    options: ["Mars", "Jupiter", "Venus", "Saturn"],
+    correctAnswer: "Mars"
   },
   {
-      question: "What is the largest moon of Saturn?",
-      options: ["Titan", "Ganymede", "Io", "Enceladus"],
-      correctAnswer: "Titan"
+    question: "What is the largest moon of Saturn?",
+    options: ["Titan", "Ganymede", "Io", "Enceladus"],
+    correctAnswer: "Titan"
   },
   {
-      question: "Which galaxy is the Milky Way a part of?",
-      options: ["Andromeda", "Triangulum", "Sombrero", "Whirlpool"],
-      correctAnswer: "Andromeda"
+    question: "Which galaxy is the Milky Way a part of?",
+    options: ["Andromeda", "Triangulum", "Sombrero", "Whirlpool"],
+    correctAnswer: "Andromeda"
   },
   {
     question: "What is the largest planet in our solar system?",
@@ -90,12 +90,18 @@ const questions = [
     options: ["1965", "1969", "1975", "1982"],
     correctAnswer: "1969"
   },
-
+  {
+    question: "How many planets in the solar system can fit between the Earth and the Moon (at apogee)",
+    options: ["5", "6", "7", "8"],
+    correctAnswer: "8"
+  },
 ];
 
 let currentQuestionIndex = 0;
+let score = 0;
 
 function startGame() {
+  score = 0;
   showQuestion();
 }
 
@@ -112,6 +118,8 @@ function showQuestion() {
       button.onclick = () => checkAnswer(option);
       optionsContainer.appendChild(button);
   });
+
+  document.getElementById("question-text").innerText = `Score: ${score}\n\n${currentQuestion.question}`;
 }
 
 function checkAnswer(selectedOption) {
@@ -119,6 +127,7 @@ function checkAnswer(selectedOption) {
 
   if (selectedOption === currentQuestion.correctAnswer) {
       alert("Correct!");
+      score++
   } else {
       alert("Wrong! The correct answer is " + currentQuestion.correctAnswer);
   }
