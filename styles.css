@@ -164,6 +164,8 @@ h1{
   text-align: center;
 }
 /* ----------------------------------- MAIN LAYOUT END ----------------------------------*/
+
+/* ----------------------------------- LOGIN PAGE START ----------------------------------*/
 .login-container{
   background-color: #a367b1;
   border: 1px solid #333;
@@ -190,7 +192,7 @@ label {
   color: #333;
 }
 
-button {
+.login-button {
   display: block;
   margin: auto;
   margin-top: 10px;
@@ -201,6 +203,7 @@ button {
   border-radius: 5px;
   cursor: pointer;
 }
+/* ----------------------------------- LOGIN PAGE END ----------------------------------*/
 
 /* ----------------------------------- HOME PAGE START ----------------------------------*/
 .home-info {

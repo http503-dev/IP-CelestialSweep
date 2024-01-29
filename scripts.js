@@ -26,7 +26,7 @@ document.getElementById('loginForm').addEventListener('submit', function (event)
         console.log(responseData);
         
         // Redirect to the home page after successful login
-        window.location.href = 'index.html';
+        window.location.href = 'home.html';
       })
       .catch(error => {
         console.error('Error:', error);
