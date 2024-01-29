@@ -164,6 +164,43 @@ h1{
   text-align: center;
 }
 /* ----------------------------------- MAIN LAYOUT END ----------------------------------*/
+.login-container{
+  background-color: #a367b1;
+  border: 1px solid #333;
+  border-radius: 8px;
+  padding: 20px;
+  width: 500px;
+  margin: auto;
+  text-align: center;
+}
+
+.login-container img {
+  max-width: 90%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+label {
+  display: block;
+  margin: 10px 0;
+  font-family: "Chakra Petch", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  color: #333;
+}
+
+button {
+  display: block;
+  margin: auto;
+  margin-top: 10px;
+  background-color: #333;
+  color: #ffd1e3;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
 
 /* ----------------------------------- HOME PAGE START ----------------------------------*/
 .home-info {
