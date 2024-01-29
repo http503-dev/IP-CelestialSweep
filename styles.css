@@ -232,11 +232,14 @@ h1{
 }
 /* ----------------------------------- ABOUT US END ----------------------------------*/
 
+/* ----------------------------------- TRIVIA START ----------------------------------*/
 #game-container {
   background-color: #a367b1;
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 500px;
+  margin: auto;
 }
 
 #question-container {
@@ -276,3 +279,4 @@ h1{
 #next-button:hover {
   background-color: #392467;
 }
+/* ----------------------------------- TRIVIA END ----------------------------------*/
