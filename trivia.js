@@ -1,3 +1,19 @@
+const storedUsername = sessionStorage.getItem('username');
+
+if (storedUsername) {
+    console.log('Welcome back, ' + storedUsername + '!');
+} else {
+    console.log('User not logged in.');
+}
+
+const storedId = sessionStorage.getItem('objectId');
+
+if (storedId) {
+    console.log(storedId);
+} else {
+    console.log('User not logged in.');
+}
+
 const questions = [
     {
       question: "Which planet is known as the 'Red Planet'?",
@@ -116,25 +132,52 @@ const questions = [
     if (currentQuestionIndex < questions.length) {
         showQuestion();
     } else {
-        alert("Game Over! You completed the trivia.");
-        resetGame();
+        // Game Over: Update points in restdb
+        updatePointsInRestDB();
     }
-  }
-  
-  function nextQuestion() {
-    if (currentQuestionIndex < questions.length) {
-        showQuestion();
-    } else {
-        alert("Game Over! You completed the trivia.");
+}
+
+function updatePointsInRestDB() {
+    const username = sessionStorage.getItem('username');
+    const objectId = sessionStorage.getItem('objectId')
+    const points = score * 10; // Adjust points as soon as possible
+
+    const data = {
+        username: username,
+        points: points,
+    };
+
+    const apiUrl = 'https://ipdatabase-b530.restdb.io/rest/userdatabase/' + objectId;
+    fetch(apiUrl, {
+        method: 'PATCH',
+        headers: {
+            'Content-Type': 'application/json',
+            'x-apikey': '65b74f425a960f46217795a7',
+        },
+        body: JSON.stringify(data),
+    })
+    .then(response => response.json())
+    .then(responseData => {
+        console.log(responseData);
+
+        // Display a message
+        alert(`Game Over! You completed the trivia. Your final score: ${score}`);
         resetGame();
-    }
-  }
-  
-  function resetGame() {
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
+}
+
+function resetGame() {
     currentQuestionIndex = 0;
+    score = 0;
+
+    // reset local storage or perform other cleanup
+    localStorage.removeItem('points');
+
     showQuestion();
-  }
-  
-  // Start the game when the page loads
-  startGame();
-  
+}
+
+// Start the game when the page loads
+startGame();
