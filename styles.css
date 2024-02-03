@@ -237,6 +237,21 @@ label {
   justify-content: space-around;
   margin: 20px;
 }
+
+#points-display {
+  color: #ffd1e3;
+  text-align: center;
+  display: block;
+  background-color: #333;
+  border: 2px solid #a367b1;
+  border-radius: 8px;
+  padding: 10px;
+  margin-left: 80px;
+  margin-right: 80px;
+  font-family: "Chakra Petch", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
 /* ----------------------------------- POINTS SHOP END ----------------------------------*/
 
 /* ----------------------------------- ABOUT US START ----------------------------------*/
@@ -280,6 +295,7 @@ label {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   width: 500px;
   margin: auto;
+  margin-top: 20px;
 }
 
 #question-container {

@@ -13,6 +13,7 @@ if (storedId) {
 } else {
     console.log('User not logged in.');
 }
+//remove above lines before submitting
 
 const questions = [
     {
@@ -140,7 +141,7 @@ const questions = [
 function updatePointsInRestDB() {
     const username = sessionStorage.getItem('username');
     const objectId = sessionStorage.getItem('objectId')
-    const points = score * 10; // Adjust points as soon as possible
+    const points = score * 15;
 
     const data = {
         username: username,
@@ -160,6 +161,11 @@ function updatePointsInRestDB() {
     .then(responseData => {
         console.log(responseData);
 
+        // Update points in session storage
+        sessionStorage.setItem('points', points)
+        // Update points display on the webpage
+        document.getElementById('points-display').innerText = `Points: ${points}`;
+
         // Display a message
         alert(`Game Over! You completed the trivia. Your final score: ${score}`);
         resetGame();
@@ -172,9 +178,6 @@ function updatePointsInRestDB() {
 function resetGame() {
     currentQuestionIndex = 0;
     score = 0;
-
-    // reset local storage or perform other cleanup
-    localStorage.removeItem('points');
 
     showQuestion();
 }
