@@ -336,3 +336,15 @@ label {
   background-color: #392467;
 }
 /* ----------------------------------- TRIVIA END ----------------------------------*/
+
+/* ----------------------------------- CART PAGE START ----------------------------------*/
+#cart-items {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center items horizontally */
+}
+
+#merch-card-container {
+  margin-bottom: 10px; /* Add some space between the cards and the checkout button */
+}
+/* ----------------------------------- CART PAGE END ----------------------------------*/

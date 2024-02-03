@@ -41,12 +41,23 @@
 <!-- -----------------main content goes here---------------------- -->
 
   <div class="content">
-    <!-- add something -->
     <h1>Profile Page</h1>
-  </div>
-</div>
+    <div class="profile-cards">
 
-<script src="login.js"></script>
+      <div class="card">
+        <img src="images/placeholder-2.png" alt="profile picture">
+        <h2 id="username-placeholder"><!-- username here --></h2>
+      </div>
+    </div>
+  </div>
+
+<script>
+  // Fetch data from session storage
+  const username = sessionStorage.getItem('username');
+
+  // Update the username in the h2 element
+  document.getElementById('username-placeholder').innerText = username;
+</script>
 
 </body>
 </html>

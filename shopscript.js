@@ -48,17 +48,37 @@ function viewCart() {
 // Display cart items on the overview page
 function displayCart() {
   const cartItems = JSON.parse(sessionStorage.getItem('cart'));
-  const cartContainer = document.getElementById('cart-items');
+  const cartContainer = document.getElementById('merch-card-container');
 
   if (cartItems && cartItems.length > 0) {
     cartItems.forEach(item => {
-      const itemDiv = document.createElement('div');
-      itemDiv.innerText = `${item.name} - ${item.cost}`;
-      cartContainer.appendChild(itemDiv);
+      const cardElement = createCardElement(item);
+      cartContainer.appendChild(cardElement);
     });
   } else {
     cartContainer.innerText = 'Your cart is empty.';
   }
+}
+
+// Function to create a card element for a merchandise item
+function createCardElement(merch) {
+  const cardElement = document.createElement('div');
+  cardElement.classList.add('card');
+
+  const imgElement = document.createElement('img');
+  imgElement.src = 'images/placeholder-2.png';
+  imgElement.alt = 'Merchandise Image';
+  cardElement.appendChild(imgElement);
+
+  const h2Element = document.createElement('h2');
+  h2Element.innerText = merch.name;
+  cardElement.appendChild(h2Element);
+
+  const pElement = document.createElement('p');
+  pElement.innerText = `${merch.description} - Cost: ${merch.cost}`;
+  cardElement.appendChild(pElement);
+
+  return cardElement;
 }
 
 // Handle checkout logic
@@ -108,6 +128,7 @@ function checkout() {
 
         // Display a success message
         alert(`Checkout successful! Points remaining: ${updatedPoints}`);
+        window.location.href = 'home.html';
       })
       .catch(error => {
         console.error('Error during checkout:', error);
