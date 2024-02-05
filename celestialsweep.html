@@ -1,1 +1,215 @@
-<!-- you will code this game -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Space Trash Collector</title>
+    <style>
+        body {
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+        canvas {
+            border: 2px solid white;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="gameCanvas" width="800" height="600"></canvas>
+    <script>
+        // Get the canvas and context
+        const canvas = document.getElementById("gameCanvas");
+        const ctx = canvas.getContext("2d");
+
+        // Player spaceship
+        const spaceship = {
+            x: canvas.width / 2,
+            y: canvas.height - 50,
+            width: 50,
+            height: 50,
+            speed: 5
+        };
+
+        // Trash array
+        let trashArray = [];
+        const maxTrash = 10;
+
+        // Array of trash images
+        const trashImages = [
+            'scrap1.png',
+            'scrap2.png',
+            'scrap3.png',
+        ];
+
+        // Load background image
+        const backgroundImage = new Image();
+        backgroundImage.src = 'images/background.png';
+
+        // Asteroids array
+        let asteroids = [];
+
+        // Timer and score
+        let timer = 60; // in seconds
+        let score = 0;
+
+        // Load spaceship image
+        const spaceshipImage = new Image();
+        spaceshipImage.src = 'spaceship-test.png';
+
+        spaceshipImage.onload = function () {
+            // Start the game loop after loading the spaceship image
+            gameLoop();
+        };
+
+        // Game loop
+        function gameLoop() {
+            // Clear the canvas with the background color
+            ctx.fillStyle = 'black';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            // Draw the player spaceship
+            ctx.drawImage(spaceshipImage, spaceship.x, spaceship.y, spaceship.width, spaceship.height);
+
+            // Draw the trash
+            for (let i = 0; i < trashArray.length; i++) {
+                const trash = trashArray[i];
+                ctx.drawImage(trash.image, trash.x, trash.y, trash.width, trash.height);
+
+                // Check for collision with player
+                if (
+                    spaceship.x < trash.x + trash.width &&
+                    spaceship.x + spaceship.width > trash.x &&
+                    spaceship.y < trash.y + trash.height &&
+                    spaceship.y + spaceship.height > trash.y
+                ) {
+                    // Remove the collected trash
+                    trashArray.splice(i, 1);
+                    score++;
+                }
+            }
+
+            // Draw the asteroids
+            ctx.fillStyle = "red";
+            for (let i = 0; i < asteroids.length; i++) {
+                const asteroid = asteroids[i];
+                ctx.fillRect(asteroid.x, asteroid.y, asteroid.width, asteroid.height);
+            }
+
+            // Display timer and score
+            ctx.fillStyle = "white";
+            ctx.font = "20px Arial";
+            ctx.fillText("Time: " + timer + "s", 10, 20);
+            ctx.fillText("Score: " + score, canvas.width - 100, 20);
+
+            // Move the player spaceship
+            window.addEventListener("keydown", movePlayer);
+
+            // Move the trash and asteroids
+            moveTrash();
+
+            // Check game over
+            if (timer <= 0) {
+                alert("Game Over! Your score is: " + score);
+                resetGame();
+            } else {
+                // Continue the game loop
+                requestAnimationFrame(gameLoop);
+            }
+        }
+
+        // Function to move the player spaceship
+        function movePlayer(event) {
+            switch (event.key) {
+                case "ArrowLeft":
+                    if (spaceship.x > 0) {
+                        spaceship.x -= spaceship.speed;
+                    }
+                    break;
+                case "ArrowRight":
+                    if (spaceship.x + spaceship.width < canvas.width) {
+                        spaceship.x += spaceship.speed;
+                    }
+                    break;
+            }
+        }
+
+        // Function to move the trash and asteroids
+        function moveTrash() {
+            // Move existing trash
+            for (let i = 0; i < trashArray.length; i++) {
+                const trash = trashArray[i];
+                trash.y += 2; // You can adjust the speed
+
+                // Remove trash if it goes beyond the canvas
+                if (trash.y > canvas.height) {
+                    trashArray.splice(i, 1);
+                }
+            }
+
+            // Move existing asteroids
+            for (let i = 0; i < asteroids.length; i++) {
+                const asteroid = asteroids[i];
+                asteroid.y += 3; // Adjust the asteroid speed
+
+                // Check for collision with player
+                if (
+                    spaceship.x < asteroid.x + asteroid.width &&
+                    spaceship.x + spaceship.width > asteroid.x &&
+                    spaceship.y < asteroid.y + asteroid.height &&
+                    spaceship.y + spaceship.height > asteroid.y
+                ) {
+                    // Game Over logic, e.g., reset the game
+                    alert("Game Over! Your score is: " + score);
+                    resetGame();
+                }
+
+                // Remove asteroids that go beyond the canvas
+                if (asteroid.y > canvas.height) {
+                    asteroids.splice(i, 1);
+                }
+            }
+
+            // Add new trash randomly
+            if (trashArray.length < maxTrash && Math.random() < 0.02) {
+                const trashImage = new Image();
+                trashImage.src = trashImages[Math.floor(Math.random() * trashImages.length)];
+
+                const newTrash = {
+                    image: trashImage,
+                    x: Math.random() * (canvas.width - 30),
+                    y: -30,
+                    width: 30,
+                    height: 30
+                };
+                trashArray.push(newTrash);
+            }
+
+            // Add new asteroids randomly
+            if (Math.random() < 0.01) {
+                const newAsteroid = {
+                    x: Math.random() * (canvas.width - 30),
+                    y: -30,
+                    width: 30,
+                    height: 30
+                };
+                asteroids.push(newAsteroid);
+            }
+        }
+
+        // Function to reset the game
+        function resetGame() {
+            spaceship.x = canvas.width / 2;
+            spaceship.y = canvas.height - 50;
+            trashArray = [];
+            asteroids = [];
+            timer = 60;
+            score = 0;
+            gameLoop();
+        }
+    </script>
+</body>
+</html>
