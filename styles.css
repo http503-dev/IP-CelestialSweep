@@ -213,13 +213,11 @@ label {
   padding: 20px;
 }
 
-.slider-container {
-  width: 400px;
-  margin: 0 auto;
+#sketchfab-embed {
+  position: relative;
 }
 
-/* button slider */
-.btn {
+.home-btn {
   background-color: #333;
   color: #ffd1e3;
   border: none;
