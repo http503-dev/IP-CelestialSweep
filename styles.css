@@ -252,6 +252,15 @@ label {
   font-weight: 400;
   font-style: normal;
 }
+
+.shop-btn {
+  background-color: #333;
+  color: #ffd1e3;
+  border: none;
+  border-radius: 8px;
+  padding: 10px;
+  cursor: pointer;
+}
 /* ----------------------------------- POINTS SHOP END ----------------------------------*/
 
 /* ----------------------------------- ABOUT US START ----------------------------------*/
@@ -262,7 +271,7 @@ label {
   margin: 20px;
 }
 
-/* cards used in: about us, points shop */
+/* cards used in: about us, points shop, profile page */
 .card {
   background-color: #a367b1;
   border: 1px solid #333;
@@ -277,7 +286,7 @@ label {
   margin-left: auto;
   margin-right: auto;
 }
-/* cards used in: about us, points shop */
+/* cards used in: about us, points shop, profile page */
 
 .contact-info {
   background-color: #a367b1;
@@ -341,10 +350,19 @@ label {
 #cart-items {
   display: flex;
   flex-direction: column;
-  align-items: center; /* Center items horizontally */
+  align-items: center;
 }
 
 #merch-card-container {
-  margin-bottom: 10px; /* Add some space between the cards and the checkout button */
+  margin: 20px; 
+}
+
+.cart-btn {
+  background-color: #333;
+  color: #ffd1e3;
+  border: none;
+  border-radius: 8px;
+  padding: 10px;
+  cursor: pointer;
 }
 /* ----------------------------------- CART PAGE END ----------------------------------*/

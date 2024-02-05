@@ -47,6 +47,9 @@
       <div class="card">
         <img src="images/placeholder-2.png" alt="profile picture">
         <h2 id="username-placeholder"><!-- username here --></h2>
+        <p>Bio not added!</p>
+        <br>
+        <p id="item-placeholder"></p>
       </div>
     </div>
   </div>
@@ -54,9 +57,12 @@
 <script>
   // Fetch data from session storage
   const username = sessionStorage.getItem('username');
+  const items = sessionStorage.getItem('items')
 
   // Update the username in the h2 element
   document.getElementById('username-placeholder').innerText = username;
+  document.getElementById('item-placeholder').innerText = 'Items currently owned: ' + items;
+
 </script>
 
 </body>

@@ -34,8 +34,8 @@ document.getElementById('points-display').innerText = `Points: ${points}`;
 let cart = [];
 
 // Add item to the cart
-function addToCart(itemId, itemName, itemCost) {
-  cart.push({ id: itemId, name: itemName, cost: itemCost });
+function addToCart(itemId, itemName, itemDescription, itemCost) {
+  cart.push({ id: itemId, name: itemName, description: itemDescription, cost: itemCost });
   console.log('Item added to cart:', cart);
 }
 
@@ -125,6 +125,7 @@ function checkout() {
         // Optionally, reset the cart and update points in sessionStorage
         sessionStorage.setItem('cart', JSON.stringify([]));
         sessionStorage.setItem('points', updatedPoints);
+        sessionStorage.setItem('items',redeemedItems );
 
         // Display a success message
         alert(`Checkout successful! Points remaining: ${updatedPoints}`);
