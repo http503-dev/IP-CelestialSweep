@@ -164,6 +164,24 @@ p {
 h1{
   text-align: center;
 }
+#loading-animation {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.8); /* Adjust background color and opacity as needed */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Ensure the loading animation is on top of other content */
+}
+
+#loading-animation dotlottie-player {
+  width: 200px; /* Adjust the width of the Lottie animation container as needed */
+  height: 200px; /* Adjust the height of the Lottie animation container as needed */
+}
+
 /* ----------------------------------- MAIN LAYOUT END ----------------------------------*/
 
 /* ----------------------------------- LOGIN PAGE START ----------------------------------*/

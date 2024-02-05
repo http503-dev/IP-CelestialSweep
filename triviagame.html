@@ -39,6 +39,9 @@
   </div>
 
 <!-- -----------------main content goes here---------------------- -->
+  <div id="loading-animation">
+    <dotlottie-player src="https://lottie.host/7f45a80d-95f6-4438-85b1-5ced4bf43d3d/5r3qFlY1HA.json" background="transparent" speed="1" style="width: 300px; height: 300px;" loop autoplay></dotlottie-player>
+  </div>
 
   <div class="content">
     <h1>Weekly Trivia</h1>
@@ -55,7 +58,15 @@
   </div>
 </div>
 
+<script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script>
 <script src="trivia.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    // Hide the loading animation
+    var loadingAnimation = document.getElementById("loading-animation");
+    loadingAnimation.style.display = "none";
+  });
+</script>
 
 </body>
 </html>
