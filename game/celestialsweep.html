@@ -42,7 +42,12 @@
 
         // Load background image
         const backgroundImage = new Image();
-        backgroundImage.src = 'background.png';
+        backgroundImage.src = 'Sky-Stars-Pattern.png';
+
+        // Ensure the background image is loaded before starting the game loop
+        backgroundImage.onload = function() {
+            gameLoop();
+        };
 
         // Asteroids array
         let asteroids = [];
@@ -62,9 +67,11 @@
 
         // Game loop
         function gameLoop() {
-            // Clear the canvas with the background color
-            ctx.fillStyle = 'black';
-            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            // Clear the canvas
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            // Draw the background image
+            ctx.drawImage(backgroundImage, 0, 0, canvas.width, canvas.height);
 
             // Draw the player spaceship
             ctx.drawImage(spaceshipImage, spaceship.x, spaceship.y, spaceship.width * 2, spaceship.height * 2);

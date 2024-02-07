@@ -32,7 +32,7 @@ document.getElementById('loginForm').addEventListener('submit', function (event)
       sessionStorage.setItem('objectId', objectId)
       
       // Redirect to the home page after successful login
-      window.location.href = 'home.html';
+      window.location.href = 'loading.html';
     })
     .catch(error => {
       console.error('Error:', error);

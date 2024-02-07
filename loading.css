@@ -1,0 +1,17 @@
+.loading-animation {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #333;
+    height: 100vh;
+  }
+
+p {
+    font-family: "Chakra Petch", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    text-align: center;
+    color: #ffd1e3;
+}
+
