@@ -34,8 +34,8 @@ document.getElementById('points-display').innerText = `Points: ${points}`;
 let cart = [];
 
 // Add item to the cart
-function addToCart(itemId, itemName, itemDescription, itemCost) {
-  cart.push({ id: itemId, name: itemName, description: itemDescription, cost: itemCost });
+function addToCart(itemId, itemName, itemDescription, itemCost, itemImage) {
+  cart.push({ id: itemId, name: itemName, description: itemDescription, cost: itemCost, image: itemImage});
   console.log('Item added to cart:', cart);
 }
 
@@ -66,7 +66,7 @@ function createCardElement(merch) {
   cardElement.classList.add('card');
 
   const imgElement = document.createElement('img');
-  imgElement.src = 'images/placeholder-2.png';
+  imgElement.src = `${merch.image}`;
   imgElement.alt = 'Merchandise Image';
   cardElement.appendChild(imgElement);
 
