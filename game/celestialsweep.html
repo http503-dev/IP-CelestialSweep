@@ -4,19 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Celestial Sweep</title>
-    <style>
-        body {
-            margin: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            overflow: hidden;
-        }
-        canvas {
-            border: 2px solid white;
-        }
-    </style>
+    <link rel="stylesheet" href="game.css">
 </head>
 <body>
     <canvas id="gameCanvas" width="800" height="600"></canvas>
@@ -31,7 +19,7 @@
             y: canvas.height - 50,
             width: 50,
             height: 50,
-            speed: 5
+            speed: 15
         };
 
         // Trash array
@@ -40,14 +28,21 @@
 
         // Array of trash images
         const trashImages = [
-            'scrap1.png',
-            'scrap2.png',
-            'scrap3.png',
+            'engine.png',
+            'panel1.png',
+            'panel2.png',
+        ];
+
+        // Array of asteroid images
+        const asteroidImages = [
+            'asteroid1.png',
+            'asteroid2.png',
+            'asteroid3.png',
         ];
 
         // Load background image
         const backgroundImage = new Image();
-        backgroundImage.src = 'images/background.png';
+        backgroundImage.src = 'background.png';
 
         // Asteroids array
         let asteroids = [];
@@ -58,7 +53,7 @@
 
         // Load spaceship image
         const spaceshipImage = new Image();
-        spaceshipImage.src = 'spaceship-test.png';
+        spaceshipImage.src = 'spaceship.png';
 
         spaceshipImage.onload = function () {
             // Start the game loop after loading the spaceship image
@@ -72,19 +67,19 @@
             ctx.fillRect(0, 0, canvas.width, canvas.height);
 
             // Draw the player spaceship
-            ctx.drawImage(spaceshipImage, spaceship.x, spaceship.y, spaceship.width, spaceship.height);
+            ctx.drawImage(spaceshipImage, spaceship.x, spaceship.y, spaceship.width * 2, spaceship.height * 2);
 
             // Draw the trash
             for (let i = 0; i < trashArray.length; i++) {
                 const trash = trashArray[i];
-                ctx.drawImage(trash.image, trash.x, trash.y, trash.width, trash.height);
+                ctx.drawImage(trash.image, trash.x, trash.y, trash.width * 2, trash.height * 2);
 
                 // Check for collision with player
                 if (
-                    spaceship.x < trash.x + trash.width &&
-                    spaceship.x + spaceship.width > trash.x &&
-                    spaceship.y < trash.y + trash.height &&
-                    spaceship.y + spaceship.height > trash.y
+                    spaceship.x < trash.x + trash.width * 2 &&
+                    spaceship.x + spaceship.width * 2 > trash.x &&
+                    spaceship.y < trash.y + trash.height * 2 &&
+                    spaceship.y + spaceship.height * 2 > trash.y
                 ) {
                     // Remove the collected trash
                     trashArray.splice(i, 1);
@@ -93,10 +88,9 @@
             }
 
             // Draw the asteroids
-            ctx.fillStyle = "red";
             for (let i = 0; i < asteroids.length; i++) {
                 const asteroid = asteroids[i];
-                ctx.fillRect(asteroid.x, asteroid.y, asteroid.width, asteroid.height);
+                ctx.drawImage(asteroid.image, asteroid.x, asteroid.y, asteroid.width * 2, asteroid.height * 2);
             }
 
             // Display timer and score
@@ -134,6 +128,16 @@
                         spaceship.x += spaceship.speed;
                     }
                     break;
+                case "ArrowUp":
+                    if (spaceship.y > 0) {
+                        spaceship.y -= spaceship.speed;
+                    }
+                    break;
+                case "ArrowDown":
+                    if (spaceship.y + spaceship.height < canvas.height) {
+                        spaceship.y += spaceship.speed;
+                    }
+                    break;
             }
         }
 
@@ -153,14 +157,14 @@
             // Move existing asteroids
             for (let i = 0; i < asteroids.length; i++) {
                 const asteroid = asteroids[i];
-                asteroid.y += 3; // Adjust the asteroid speed
+                asteroid.y += asteroid.speedY; // Adjust the asteroid speed
 
                 // Check for collision with player
                 if (
-                    spaceship.x < asteroid.x + asteroid.width &&
-                    spaceship.x + spaceship.width > asteroid.x &&
-                    spaceship.y < asteroid.y + asteroid.height &&
-                    spaceship.y + spaceship.height > asteroid.y
+                    spaceship.x < asteroid.x + asteroid.width * 2 &&
+                    spaceship.x + spaceship.width * 2 > asteroid.x &&
+                    spaceship.y < asteroid.y + asteroid.height * 2 &&
+                    spaceship.y + spaceship.height * 2 > asteroid.y
                 ) {
                     // Game Over logic, e.g., reset the game
                     alert("Game Over! Your score is: " + score);
@@ -190,11 +194,16 @@
 
             // Add new asteroids randomly
             if (Math.random() < 0.01) {
+                const asteroidImage = new Image();
+                asteroidImage.src = asteroidImages[Math.floor(Math.random() * asteroidImages.length)];
+
                 const newAsteroid = {
+                    image: asteroidImage,
                     x: Math.random() * (canvas.width - 30),
                     y: -30,
                     width: 30,
-                    height: 30
+                    height: 30,
+                    speedY: Math.random() * 3 + 1 // Random speed between 1 and 4
                 };
                 asteroids.push(newAsteroid);
             }
@@ -208,6 +217,15 @@
             asteroids = [];
             timer = 60;
             score = 0;
+
+            // Reset spaceship speed
+            spaceship.speed = 15; // Or whatever the initial speed should be
+
+            // Reset trash and asteroids speed
+            for (let i = 0; i < asteroids.length; i++) {
+                asteroids[i].speedY = Math.random() * 3 + 1; // Reset asteroids speed
+            }
+
             gameLoop();
         }
     </script>
